@@ -11,9 +11,9 @@ namespace Valuator.Pages;
 public class SummaryModel : PageModel
 {
     private readonly ILogger<SummaryModel> _logger;
-    private readonly IRedisService _redisService;
+    private readonly IRedis _redisService;
 
-    public SummaryModel(ILogger<SummaryModel> logger, IRedisService redisService)
+    public SummaryModel(ILogger<SummaryModel> logger, IRedis redisService)
     {
         _logger = logger;
         _redisService = redisService;

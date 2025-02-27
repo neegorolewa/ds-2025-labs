@@ -9,7 +9,7 @@ public class Program
         var builder = WebApplication.CreateBuilder(args);
 
         string connectionString = builder.Configuration.GetConnectionString("Redis");
-        builder.Services.AddSingleton<IRedisService>(new RedisService(connectionString));
+        builder.Services.AddSingleton<IRedis>(new Redis(connectionString));
         
         // Add services to the container.
         builder.Services.AddRazorPages();

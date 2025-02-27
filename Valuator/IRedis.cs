@@ -1,8 +1,8 @@
 ﻿namespace Valuator.Service;
 
-public interface IRedisService
+public interface IRedis
 {
     string Get(string key);
     void Set(string key, string value);
-    List<string> GetKeys();
+    List<string> GetKeys(string pattern);
 }

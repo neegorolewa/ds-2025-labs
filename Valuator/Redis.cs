@@ -3,11 +3,11 @@ using StackExchange.Redis;
 
 namespace Valuator.Service;
 
-public class RedisService : IRedisService
+public class Redis : IRedis
 {
     private readonly IConnectionMultiplexer _connectionMultiplexer;
 
-    public RedisService(string redisConnectionString)
+    public Redis(string redisConnectionString)
     {
         _connectionMultiplexer = ConnectionMultiplexer.Connect(redisConnectionString);
     }
@@ -25,10 +25,10 @@ public class RedisService : IRedisService
         return value.ToString();
     }
 
-    public List<string> GetKeys()
+    public List<string> GetKeys(string key)
     {
         var server = _connectionMultiplexer.GetServer(_connectionMultiplexer.GetEndPoints().First());
-        return server.Keys(pattern: "*").Select(k => k.ToString()).ToList();
+        return server.Keys(pattern: key + "*").Select(k => k.ToString()).ToList();
     }
 
     public void Set(string key, string value)
