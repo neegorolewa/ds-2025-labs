@@ -1,3 +1,5 @@
+using Valuator.Service;
+
 namespace Valuator;
 
 public class Program
@@ -6,6 +8,9 @@ public class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
+        string connectionString = builder.Configuration.GetConnectionString("Redis");
+        builder.Services.AddSingleton<IRedisService>(new RedisService(connectionString));
+        
         // Add services to the container.
         builder.Services.AddRazorPages();
 
