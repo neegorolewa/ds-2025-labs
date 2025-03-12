@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\nginx",
+    "\\nginx\\logs"
   ],
-  "SelectedNode": "\\Valuator",
+  "SelectedNode": "\\nginx\\logs\\access.log",
   "PreviewInSolutionExplorer": false
 }
