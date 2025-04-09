@@ -21,6 +21,7 @@ public class SummaryModel : PageModel
 
     public double Rank { get; set; }
     public double Similarity { get; set; }
+    public bool IsRankCalculated{ get; set; }
 
     public void OnGet(string id)
     {
@@ -29,13 +30,18 @@ public class SummaryModel : PageModel
         // TODO: (pa1) проинициализировать свойства Rank и Similarity значениями из БД (Redis)
         string rankKey = "RANK-" + id;
         string rankValue = _redisService.Get(rankKey);
-        if (double.TryParse(rankValue, out double rank))
+        if (string.IsNullOrEmpty(rankValue))
+        {
+            IsRankCalculated = false;
+        }
+        else if (double.TryParse(rankValue, out double rank))
         {
             Rank = rank;
+            IsRankCalculated = true;
         }
         else
         {
-            Rank = 0;
+            IsRankCalculated = false;
         }
 
         string similarityKey = "SIMILARITY-" + id;

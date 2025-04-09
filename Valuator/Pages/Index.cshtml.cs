@@ -2,6 +2,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using StackExchange.Redis;
 using Valuator.Service;
+using RabbitMQ.Client;
+using System.Text.Json;
+using System.Text;
+
 
 
 namespace Valuator.Pages;
@@ -10,6 +14,8 @@ public class IndexModel : PageModel
 {
     private readonly ILogger<IndexModel> _logger;
     private readonly Service.IRedis _rediseService;
+    private const string ExchangeName = "valuator.processing.rank";
+    private const string QueueName = "valuator.processing.rank";
 
     public IndexModel(ILogger<IndexModel> logger, Service.IRedis redisService)
     {
@@ -17,7 +23,7 @@ public class IndexModel : PageModel
         _rediseService = redisService;
     }
 
-    public IActionResult OnPost(string text)
+    public async Task<IActionResult> OnPostAsync(string text)
     {
         if (string.IsNullOrWhiteSpace(text))
         {
@@ -38,23 +44,54 @@ public class IndexModel : PageModel
         // TODO: (pa1) сохранить в БД (Redis) text по ключу textKey
         _rediseService.Set(textKey, text);
 
-        string rankKey = "RANK-" + id;
-        // TODO: (pa1) посчитать rank и сохранить в БД (Redis) по ключу rankKey
-        string rank = CalculateRank(text).ToString();
-        _rediseService.Set(rankKey, rank);
-            
+        await SendRankCalculationTask(id);
 
         return Redirect($"summary?id={id}");
     }
 
-    public double CalculateRank(string text)
+    private static async Task SendRankCalculationTask(string id)
     {
-        double nonAlphabeticCount = text.Count(c => !char.IsLetter(c));
-        double countSymbols = text.Length; 
+        // Установка соединения с RabbitMQ по адресу localhost:5672
+        ConnectionFactory factory = new ConnectionFactory
+        {
+            HostName = "localhost"
+        };
 
-        return countSymbols == 0 ? 0 : nonAlphabeticCount / countSymbols;
+        await using IConnection connection = await factory.CreateConnectionAsync();
+        await using IChannel channel = await connection.CreateChannelAsync();
+
+        await DeclareTopologyAsync(channel, CancellationToken.None);
+
+        var body = Encoding.UTF8.GetBytes(id);
+
+        await channel.BasicPublishAsync(
+                exchange: ExchangeName,
+                routingKey: "",
+                body: body
+        );
     }
-        
+
+    private static async Task DeclareTopologyAsync(IChannel channel, CancellationToken ct)
+    {
+        await channel.ExchangeDeclareAsync(
+            exchange: ExchangeName,
+            type: ExchangeType.Direct,
+            cancellationToken: ct
+        );
+        await channel.QueueDeclareAsync(
+            queue: QueueName,
+            durable: true,
+            exclusive: false,
+            autoDelete: false,
+            cancellationToken: ct
+        );
+        await channel.QueueBindAsync(
+            queue: QueueName,
+            exchange: ExchangeName,
+            routingKey: "",
+            cancellationToken: ct);
+    }
+
     public string CalculateSimilarity(string text)
     {
         List<string> keys = _rediseService.GetKeys("TEXT-");
