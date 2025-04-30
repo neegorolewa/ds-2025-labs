@@ -5,6 +5,7 @@ using Valuator.Service;
 using RabbitMQ.Client;
 using System.Text.Json;
 using System.Text;
+using RabbitMQ.Client.Exceptions;
 
 
 
@@ -13,43 +14,64 @@ namespace Valuator.Pages;
 public class IndexModel : PageModel
 {
     private readonly ILogger<IndexModel> _logger;
-    private readonly Service.IRedis _rediseService;
+    private readonly Service.IRedis _redisService;
     private const string ExchangeName = "valuator.processing.rank";
     private const string QueueName = "valuator.processing.rank";
 
     public IndexModel(ILogger<IndexModel> logger, Service.IRedis redisService)
     {
         _logger = logger;
-        _rediseService = redisService;
+        _redisService = redisService;
     }
 
-    public async Task<IActionResult> OnPostAsync(string text)
+    public async Task<IActionResult> OnPostAsync(string text, string region)
     {
         if (string.IsNullOrWhiteSpace(text))
         {
             return Page();
         }
 
-        _logger.LogDebug(text);
+        Console.WriteLine($"Received country: {region}");
 
+        string reg = region switch
+        {
+            "Russia" => "RU",
+            "France" or "Germany" => "EU",
+            "UAE" or "India" => "ASIA",
+            _ => "RU" // Дефолтный регион
+        };
+
+        Console.WriteLine($"Mapped to region: {reg}");
+
+        _logger.LogDebug(text);
         string id = Guid.NewGuid().ToString();
+
+        _redisService.SetShardMap(id, reg);
 
         //проверка на плагиат прежде, чем сохраняем текст в бд
         string similarityKey = "SIMILARITY-" + id;
         // TODO: (pa1) посчитать similarity и сохранить в БД (Redis) по ключу similarityKey
-        string similarity = CalculateSimilarity(text);
-        _rediseService.Set(similarityKey, similarity);
+        string similarity = CalculateSimilarity(text, reg);
+        _redisService.Set(similarityKey, similarity, reg);
 
         string textKey = "TEXT-" + id;
         // TODO: (pa1) сохранить в БД (Redis) text по ключу textKey
-        _rediseService.Set(textKey, text);
+        _redisService.Set(textKey, text, reg);
 
-        await SendRankCalculationTask(id);
+        await SendRankCalculationTask(id, similarity);
 
         return Redirect($"summary?id={id}");
     }
 
-    private static async Task SendRankCalculationTask(string id)
+    private static async Task PublishSimilarityCalculatedEvent(IChannel channel, string id, string similarity)
+    {
+        var message = $"SIMILARITY-{id}: {similarity}";
+        var body = Encoding.UTF8.GetBytes(message);
+        await channel.BasicPublishAsync(exchange: "logs", routingKey: string.Empty, body: body);
+        Console.WriteLine($" [x] Sent {message}");
+    }
+
+    private static async Task SendRankCalculationTask(string id, string similarity)
     {
         // Установка соединения с RabbitMQ по адресу localhost:5672
         ConnectionFactory factory = new ConnectionFactory
@@ -63,6 +85,8 @@ public class IndexModel : PageModel
         await DeclareTopologyAsync(channel, CancellationToken.None);
 
         var body = Encoding.UTF8.GetBytes(id);
+
+        await PublishSimilarityCalculatedEvent(channel, id, similarity);
 
         await channel.BasicPublishAsync(
                 exchange: ExchangeName,
@@ -92,12 +116,12 @@ public class IndexModel : PageModel
             cancellationToken: ct);
     }
 
-    public string CalculateSimilarity(string text)
+    public string CalculateSimilarity(string text, string region)
     {
-        List<string> keys = _rediseService.GetKeys("TEXT-");
+        List<string> keys = _redisService.GetKeys("TEXT-", region);
         foreach (var key in keys)
         {
-            string storedValue = _rediseService.Get(key);
+            string storedValue = _redisService.Get(key, region);
             if (storedValue == text)
             {
                 return "1";

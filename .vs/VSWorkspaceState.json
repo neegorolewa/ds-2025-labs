@@ -1,9 +1,15 @@
 {
   "ExpandedNodes": [
     "",
+    "\\EventsLogger",
+    "\\nginx",
+    "\\nginx\\logs",
+    "\\RankCalculator",
     "\\RankCalculator\\RankCalculator",
+    "\\scripts",
+    "\\Valuator",
     "\\Valuator\\Pages"
   ],
-  "SelectedNode": "\\Valuator",
+  "SelectedNode": "\\scripts\\start.bat",
   "PreviewInSolutionExplorer": false
 }

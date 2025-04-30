@@ -28,8 +28,12 @@ public class SummaryModel : PageModel
         _logger.LogDebug(id);
 
         // TODO: (pa1) проинициализировать свойства Rank и Similarity значениями из БД (Redis)
+        string region = _redisService.GetShardRegion(id);
+        Console.WriteLine($"LOOKUP: {id}, {region}");
+        
         string rankKey = "RANK-" + id;
-        string rankValue = _redisService.Get(rankKey);
+        string rankValue = _redisService.Get(rankKey, region);
+        
         if (string.IsNullOrEmpty(rankValue))
         {
             IsRankCalculated = false;
@@ -45,7 +49,7 @@ public class SummaryModel : PageModel
         }
 
         string similarityKey = "SIMILARITY-" + id;
-        string similarityValue = _redisService.Get(similarityKey);
+        string similarityValue = _redisService.Get(similarityKey, region);
         if (double.TryParse(similarityValue, out double similarity))
         {
             Similarity = similarity;

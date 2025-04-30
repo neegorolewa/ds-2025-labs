@@ -5,35 +5,86 @@ namespace Valuator.Service;
 
 public class Redis : IRedis
 {
-    private readonly IConnectionMultiplexer _connectionMultiplexer;
+    private readonly IConnectionMultiplexer _mainConnection;
+    private readonly Dictionary<string, IConnectionMultiplexer> _regionConnections;
 
-    public Redis(string redisConnectionString)
+    public Redis(string redisConnectionString, Dictionary<string, string> regionConnections)
     {
-        _connectionMultiplexer = ConnectionMultiplexer.Connect(redisConnectionString);
+        _mainConnection = ConnectionMultiplexer.Connect(redisConnectionString);
+        _regionConnections = new Dictionary<string, IConnectionMultiplexer>();
+        foreach (var region in regionConnections)
+        {
+            try
+            {
+                var connection = ConnectionMultiplexer.Connect(region.Value);
+                _regionConnections[region.Key] = connection;
+            }
+            catch (RedisConnectionException ex)
+            {
+                Console.WriteLine($"Failed to connect to {region.Key} Redis: {ex.Message}");
+            }
+        }
     }
 
-    public string Get(string key)
+    public string GetShardRegion(string textId)
     {
-        var _db = _connectionMultiplexer.GetDatabase();
-        var value = _db.StringGet(key);
+        var db = _mainConnection.GetDatabase();
+        var region = db.StringGet($"shard:{textId}");
+        return region.IsNullOrEmpty ? "RU" : region.ToString();
+    }
 
-        if (value.IsNullOrEmpty)
+    public void SetShardMap(string textId, string region)
+    {
+        var db = _mainConnection.GetDatabase();
+        db.StringSet($"shard:{textId}", region);
+        Console.WriteLine($"LOOKUP: {textId}, {region}"); // Логирование по заданию
+    }
+
+    public string Get(string key, string? region = null)
+    {
+        IDatabase db;
+        if (region == null || !_regionConnections.ContainsKey(region))
         {
-            return string.Empty;
+            db = _mainConnection.GetDatabase();
+        }
+        else
+        {
+            db = _regionConnections[region].GetDatabase();
         }
 
-        return value.ToString();
+        var value = db.StringGet(key);
+        return value.IsNullOrEmpty ? string.Empty : value.ToString();
     }
 
-    public List<string> GetKeys(string key)
+    public List<string> GetKeys(string pattern, string? region = null)
     {
-        var server = _connectionMultiplexer.GetServer(_connectionMultiplexer.GetEndPoints().First());
-        return server.Keys(pattern: key + "*").Select(k => k.ToString()).ToList();
+        IEnumerable<RedisKey> keys;
+        if (region == null || !_regionConnections.ContainsKey(region))
+        {
+            var server = _mainConnection.GetServer(_mainConnection.GetEndPoints().First());
+            keys = server.Keys(pattern: pattern + "*");
+        }
+        else
+        {
+            var server = _regionConnections[region].GetServer(_regionConnections[region].GetEndPoints().First());
+            keys = server.Keys(pattern: pattern + "*");
+        }
+
+        return keys.Select(k => k.ToString()).ToList();
     }
 
-    public void Set(string key, string value)
+    public void Set(string key, string value, string? region = null)
     {
-        var db = _connectionMultiplexer.GetDatabase();
+        IDatabase db;
+        if (region == null || !_regionConnections.ContainsKey(region))
+        {
+            db = _mainConnection.GetDatabase();
+        }
+        else
+        {
+            db = _regionConnections[region].GetDatabase();
+        }
+
         db.StringSet(key, value);
     }
 }

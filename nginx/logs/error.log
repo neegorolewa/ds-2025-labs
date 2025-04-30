@@ -145,3 +145,45 @@ ginx\logs\access.log" failed (123: The filename, directory name, or volume label
 2025/04/03 08:37:04 [error] 2696#21844: *1 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "GET /summary?id=44c4ab60-b578-4660-b9d8-9ac40b8c6c12 HTTP/1.1", upstream: "http://[::1]:5001/summary?id=44c4ab60-b578-4660-b9d8-9ac40b8c6c12", host: "localhost:8080", referrer: "http://localhost:8080/"
 2025/04/03 08:55:55 [error] 16352#9312: *1 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "POST / HTTP/1.1", upstream: "http://[::1]:5001/", host: "localhost:8080", referrer: "http://localhost:8080/"
 2025/04/03 08:56:01 [error] 16352#9312: *21 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", upstream: "http://127.0.0.1:5001/", host: "localhost:8080", referrer: "http://localhost:8080/summary?id=851d3705-081d-4e1f-9607-5ef6607a439b"
+2025/04/24 00:45:32 [error] 6020#11420: *1 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", upstream: "http://[::1]:5001/", host: "localhost:8080", referrer: "http://localhost:8080/summary?id=3dedc5a0-8e09-4a51-b790-a9b05718b299"
+2025/04/24 00:45:34 [error] 6020#11420: *1 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", upstream: "http://127.0.0.1:5001/", host: "localhost:8080", referrer: "http://localhost:8080/summary?id=3dedc5a0-8e09-4a51-b790-a9b05718b299"
+2025/04/24 00:45:36 [error] 6020#11420: *1 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", upstream: "http://[::1]:5002/", host: "localhost:8080", referrer: "http://localhost:8080/summary?id=3dedc5a0-8e09-4a51-b790-a9b05718b299"
+2025/04/24 00:45:38 [error] 6020#11420: *1 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", upstream: "http://127.0.0.1:5002/", host: "localhost:8080", referrer: "http://localhost:8080/summary?id=3dedc5a0-8e09-4a51-b790-a9b05718b299"
+2025/04/24 00:50:25 [notice] 22328#19524: signal process started
+2025/04/24 00:50:25 [error] 22328#19524: OpenEvent("Global\ngx_stop_21856") failed (2: The system cannot find the file specified)
+2025/04/24 00:55:18 [notice] 21820#7808: signal process started
+2025/04/24 00:55:18 [error] 21820#7808: OpenEvent("Global\ngx_stop_1956") failed (2: The system cannot find the file specified)
+2025/04/24 00:58:32 [notice] 11124#4320: signal process started
+2025/04/24 00:58:32 [error] 11124#4320: OpenEvent("Global\ngx_stop_21384") failed (2: The system cannot find the file specified)
+2025/04/24 00:58:38 [notice] 9940#22672: signal process started
+2025/04/24 00:58:38 [error] 9940#22672: OpenEvent("Global\ngx_stop_21384") failed (2: The system cannot find the file specified)
+2025/04/24 01:00:49 [notice] 23696#12396: signal process started
+2025/04/24 01:00:49 [error] 23696#12396: OpenEvent("Global\ngx_stop_20960") failed (2: The system cannot find the file specified)
+2025/04/24 01:04:45 [notice] 5872#8460: signal process started
+2025/04/24 01:04:45 [error] 5872#8460: OpenEvent("Global\ngx_stop_12736") failed (2: The system cannot find the file specified)
+2025/04/24 01:07:33 [notice] 4320#18140: signal process started
+2025/04/24 01:07:33 [error] 4320#18140: OpenEvent("Global\ngx_stop_12736") failed (2: The system cannot find the file specified)
+2025/04/24 01:10:44 [notice] 21692#15768: signal process started
+2025/04/24 01:10:44 [error] 21692#15768: OpenEvent("Global\ngx_stop_13704") failed (2: The system cannot find the file specified)
+2025/04/24 01:15:29 [notice] 13960#1160: signal process started
+2025/04/24 01:15:29 [error] 13960#1160: OpenEvent("Global\ngx_stop_17968") failed (2: The system cannot find the file specified)
+2025/04/24 01:21:10 [notice] 21620#22368: signal process started
+2025/04/24 01:21:10 [error] 21620#22368: OpenEvent("Global\ngx_stop_17968") failed (2: The system cannot find the file specified)
+2025/04/24 01:21:47 [notice] 10160#2296: signal process started
+2025/04/24 01:21:47 [error] 10160#2296: OpenEvent("Global\ngx_stop_17928") failed (2: The system cannot find the file specified)
+2025/04/24 01:25:55 [notice] 17668#6532: signal process started
+2025/04/24 01:25:55 [error] 17668#6532: OpenEvent("Global\ngx_stop_5412") failed (2: The system cannot find the file specified)
+2025/04/24 01:30:13 [notice] 9088#23804: signal process started
+2025/04/24 01:30:13 [error] 9088#23804: OpenEvent("Global\ngx_stop_5368") failed (2: The system cannot find the file specified)
+2025/04/24 01:35:06 [notice] 8944#12076: signal process started
+2025/04/24 01:35:06 [error] 8944#12076: OpenEvent("Global\ngx_stop_24080") failed (2: The system cannot find the file specified)
+2025/04/24 01:36:33 [notice] 23320#6736: signal process started
+2025/04/24 01:36:33 [error] 23320#6736: OpenEvent("Global\ngx_stop_17496") failed (2: The system cannot find the file specified)
+2025/04/30 16:41:56 [notice] 3240#11524: signal process started
+2025/04/30 16:41:56 [error] 3240#11524: OpenEvent("Global\ngx_stop_7888") failed (2: The system cannot find the file specified)
+2025/04/30 16:46:49 [notice] 12184#15336: signal process started
+2025/04/30 16:46:49 [error] 12184#15336: OpenEvent("Global\ngx_stop_12280") failed (2: The system cannot find the file specified)
+2025/04/30 16:48:13 [notice] 2464#11356: signal process started
+2025/04/30 16:48:13 [error] 2464#11356: OpenEvent("Global\ngx_stop_14736") failed (2: The system cannot find the file specified)
+2025/04/30 16:59:39 [notice] 17164#12196: signal process started
+2025/04/30 16:59:39 [error] 17164#12196: OpenEvent("Global\ngx_stop_2620") failed (2: The system cannot find the file specified)

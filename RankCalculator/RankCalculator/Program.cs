@@ -1,25 +1,36 @@
-﻿
-using System.Text;
-using System.Text.Json;
+﻿using System.Text;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
-using StackExchange.Redis;
+using Valuator.Service;
 
 namespace RankCalculator;
 
 class Program
 {
-    private static readonly IConnectionMultiplexer redis = ConnectionMultiplexer.Connect("localhost:6379");
-    private static readonly IDatabase db = redis.GetDatabase();
+    private static IRedis _redis;
     private const string QueueName = "valuator.processing.rank";
+
     public static async Task Main(string[] args)
     {
+        var redisConfig = new Dictionary<string, string>
+        {
+            ["RU"] = Environment.GetEnvironmentVariable("DB_RU") ?? "localhost:6001",
+            ["EU"] = Environment.GetEnvironmentVariable("DB_EU") ?? "localhost:6002",
+            ["ASIA"] = Environment.GetEnvironmentVariable("DB_ASIA") ?? "localhost:6003"
+        };
+
+        _redis = new Redis(
+            Environment.GetEnvironmentVariable("DB_MAIN") ?? "localhost:6000",
+            redisConfig
+        );
+
         Console.WriteLine("RankCalculator started");
 
         ConnectionFactory factory = new ConnectionFactory
         {
             HostName = "localhost",
         };
+
         await using IConnection connection = await factory.CreateConnectionAsync();
         await using IChannel channel = await connection.CreateChannelAsync();
 
@@ -51,15 +62,36 @@ class Program
         var id = Encoding.UTF8.GetString(eventArgs.Body.ToArray());
         Console.WriteLine($"Processing ID: {id} ");
 
+        string region = _redis.GetShardRegion(id);
+        Console.WriteLine($"LOOKUP: {id}, {region}");
 
-        //получать текст здесь из бд
-        string text = db.StringGet("TEXT-" + id);
+        string text = _redis.Get("TEXT-" + id, region);
 
         double rank = CalculateRank(text);
-        db.StringSet("RANK-" + id, rank.ToString());
+        _redis.Set("RANK-" + id, rank.ToString(), region);
+        //
+        Console.WriteLine($"Saved RANK-{id} = {rank} in region {region}");
+        
+        //
+        string savedRank = _redis.Get($"RANK-{id}", region);
+        Console.WriteLine($"Verify RANK: {savedRank}");
 
+        await PublishRankCalculatedEvent(channel, id, rank);
         await channel.BasicAckAsync(eventArgs.DeliveryTag, false);
+        
         Console.WriteLine($"Processing ID: {id} Saved text: {text} Rank: {rank}");
+    }
+
+    private static async Task PublishRankCalculatedEvent(IChannel channel, string id, double rank)
+    {
+        var message = $"RANK-{id}: {rank}";
+        var body = Encoding.UTF8.GetBytes(message);
+        await channel.BasicPublishAsync(
+            exchange: "logs", 
+            routingKey: string.Empty, 
+            body: body
+            );
+        Console.WriteLine($" [x] Sent {message}");
     }
 
     public static double CalculateRank(string text)
@@ -76,16 +108,16 @@ class Program
     /// </summary>
     private static async Task DeclareTopologyAsync(IChannel channel)
     {
+        await channel.ExchangeDeclareAsync(
+            exchange: "logs",
+            type: ExchangeType.Fanout
+        );
+
         await channel.QueueDeclareAsync(
             queue: QueueName,
             durable: true,
             exclusive: false,
             autoDelete: false
         );
-    }
-    private class Data
-    {
-        public string Id {  get; set; }
-        public string Text{ get; set; }
     }
 }
