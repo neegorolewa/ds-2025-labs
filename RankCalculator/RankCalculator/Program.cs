@@ -14,13 +14,13 @@ class Program
     {
         var redisConfig = new Dictionary<string, string>
         {
-            ["RU"] = Environment.GetEnvironmentVariable("DB_RU") ?? "localhost:6001",
-            ["EU"] = Environment.GetEnvironmentVariable("DB_EU") ?? "localhost:6002",
-            ["ASIA"] = Environment.GetEnvironmentVariable("DB_ASIA") ?? "localhost:6003"
+            ["RU"] = Environment.GetEnvironmentVariable("DB_RU") ,
+            ["EU"] = Environment.GetEnvironmentVariable("DB_EU") ,
+            ["ASIA"] = Environment.GetEnvironmentVariable("DB_ASIA")
         };
 
         _redis = new Redis(
-            Environment.GetEnvironmentVariable("DB_MAIN") ?? "localhost:6000",
+            Environment.GetEnvironmentVariable("DB_MAIN") ,
             redisConfig
         );
 

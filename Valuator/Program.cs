@@ -11,14 +11,14 @@ public class Program
         // 1. Загружаем конфигурацию для всех шардов
         var redisConfig = new Dictionary<string, string>
         {
-            ["RU"] = builder.Configuration["ConnectionStrings:DB_RU"] ?? "localhost:6001",
-            ["EU"] = builder.Configuration["ConnectionStrings:DB_EU"] ?? "localhost:6002",
-            ["ASIA"] = builder.Configuration["ConnectionStrings:DB_ASIA"] ?? "localhost:6003"
+            ["RU"] = Environment.GetEnvironmentVariable("DB_RU"),
+            ["EU"] = Environment.GetEnvironmentVariable("DB_EU"),
+            ["ASIA"] = Environment.GetEnvironmentVariable("DB_ASIA"),
         };
 
         // 2. Инициализируем Redis с поддержкой регионов
         builder.Services.AddSingleton<IRedis>(new Redis(
-            builder.Configuration["ConnectionStrings:DB_MAIN"] ?? "localhost:6000",
+            Environment.GetEnvironmentVariable("DB_MAIN"),
             redisConfig
         ));
 
