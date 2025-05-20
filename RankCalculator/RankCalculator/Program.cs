@@ -5,7 +5,7 @@ using Valuator.Service;
 
 namespace RankCalculator;
 
-class Program
+public class RankCalculator
 {
     private static IRedis _redis;
     private const string QueueName = "valuator.processing.rank";

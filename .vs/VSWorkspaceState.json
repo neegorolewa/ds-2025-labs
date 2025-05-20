@@ -1,15 +1,12 @@
 {
   "ExpandedNodes": [
     "",
-    "\\EventsLogger",
-    "\\nginx",
-    "\\nginx\\logs",
     "\\RankCalculator",
-    "\\RankCalculator\\RankCalculator",
-    "\\scripts",
     "\\Valuator",
-    "\\Valuator\\Pages"
+    "\\Valuator\\Pages",
+    "\\Valuator\\wwwroot",
+    "\\Valuator\\wwwroot\\css"
   ],
-  "SelectedNode": "\\Valuator\\Program.cs",
+  "SelectedNode": "\\ds-2024.sln",
   "PreviewInSolutionExplorer": false
 }
