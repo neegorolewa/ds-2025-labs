@@ -1,12 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\nginx",
-    "\\nginx\\logs",
     "\\RankCalculator",
     "\\RankCalculator\\RankCalculator",
     "\\Valuator\\Pages"
   ],
-  "SelectedNode": "\\Valuator",
+  "SelectedNode": "\\RankCalculator\\docker-compose.yaml",
   "PreviewInSolutionExplorer": false
 }

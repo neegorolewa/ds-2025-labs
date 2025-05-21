@@ -1,7 +1,6 @@
-REM Перед запуском приложений
+
 taskkill /f /im dotnet.exe /t >nul 2>&1
 
-REM В start.bat добавьте
 set DB_MAIN=localhost:6000
 set DB_RU=localhost:6001
 set DB_EU=localhost:6002
