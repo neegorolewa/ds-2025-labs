@@ -7,8 +7,6 @@ using System.Text.Json;
 using System.Text;
 using RabbitMQ.Client.Exceptions;
 
-
-
 namespace Valuator.Pages;
 
 public class IndexModel : PageModel
@@ -76,7 +74,9 @@ public class IndexModel : PageModel
         // Установка соединения с RabbitMQ по адресу localhost:5672
         ConnectionFactory factory = new ConnectionFactory
         {
-            HostName = "localhost"
+            HostName = "localhost",
+            UserName = Environment.GetEnvironmentVariable("RABBITMQ_DEFAULT_USER"),
+            Password = Environment.GetEnvironmentVariable("RABBITMQ_DEFAULT_PASS")
         };
 
         await using IConnection connection = await factory.CreateConnectionAsync();

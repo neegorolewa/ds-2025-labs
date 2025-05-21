@@ -1,7 +1,12 @@
 {
   "ExpandedNodes": [
     "",
-    "\\RankCalculator\\RankCalculator"
+    "\\nginx",
+    "\\nginx\\logs",
+    "\\RankCalculator",
+    "\\RankCalculator\\RankCalculator",
+    "\\Valuator\\Pages"
   ],
+  "SelectedNode": "\\Valuator",
   "PreviewInSolutionExplorer": false
 }

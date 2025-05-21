@@ -7,6 +7,14 @@ set DB_RU=localhost:6001
 set DB_EU=localhost:6002
 set DB_ASIA=localhost:6003
 
+set DB_MAIN_PASS=main
+set DB_RU_PASS=ru
+set DB_EU_PASS=eu
+set DB_ASIA_PASS=asia
+
+set RABBITMQ_DEFAULT_USER=rabbituser
+set RABBITMQ_DEFAULT_PASS=rabbitpass
+
 cd ..\RankCalculator\
 docker-compose up -d
 
@@ -16,11 +24,6 @@ cd ..\RankCalculator\RankCalculator\
 start dotnet build
 cd ..\..\EventsLogger\
 start dotnet build
-
-start "Redis MAIN" docker run -d -p 6000:6379 --name redis-main redis
-start "Redis RU" docker run -d -p 6001:6379 --name redis-ru redis
-start "Redis EU" docker run -d -p 6002:6379 --name redis-eu redis
-start "Redis ASIA" docker run -d -p 6003:6379 --name redis-asia redis
 
 pause
 

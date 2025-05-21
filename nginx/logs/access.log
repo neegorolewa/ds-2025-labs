@@ -707,3 +707,12 @@ proxy_pass: 127.0.0.1:5001
 proxy_pass: [::1]:5002
 proxy_pass: 127.0.0.1:5002
 proxy_pass: [::1]:5001
+proxy_pass: [::1]:5001, 127.0.0.1:5001, [::1]:5002
+proxy_pass: 127.0.0.1:5002, [::1]:5002, backend
+proxy_pass: [::1]:5001
+proxy_pass: 127.0.0.1:5001
+proxy_pass: [::1]:5002
+proxy_pass: 127.0.0.1:5002
+proxy_pass: [::1]:5001
+proxy_pass: 127.0.0.1:5001
+proxy_pass: [::1]:5002

@@ -6,7 +6,9 @@ const string QueueLoggerName = "events.logger.queue";
 
 var factory = new ConnectionFactory
 { 
-    HostName = "localhost" 
+    HostName = "localhost",
+    UserName = Environment.GetEnvironmentVariable("RABBITMQ_DEFAULT_USER"),
+    Password = Environment.GetEnvironmentVariable("RABBITMQ_DEFAULT_PASS")
 };
 using var connection = await factory.CreateConnectionAsync();
 using var channel = await connection.CreateChannelAsync();

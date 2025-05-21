@@ -205,3 +205,18 @@ ginx\logs\access.log" failed (123: The filename, directory name, or volume label
 2025/05/21 16:25:21 [error] 10680#1844: OpenEvent("Global\ngx_stop_21672") failed (2: The system cannot find the file specified)
 2025/05/21 23:50:18 [notice] 25172#22644: signal process started
 2025/05/21 23:50:18 [error] 25172#22644: OpenEvent("Global\ngx_stop_16804") failed (2: The system cannot find the file specified)
+2025/05/22 00:44:46 [notice] 27404#19168: signal process started
+2025/05/22 00:44:46 [error] 27404#19168: OpenEvent("Global\ngx_stop_15540") failed (2: The system cannot find the file specified)
+2025/05/22 00:48:17 [error] 24664#24480: *1 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "GET /summary?id=fabe335a-40b1-48a6-939b-ec31763f069f HTTP/1.1", upstream: "http://[::1]:5001/summary?id=fabe335a-40b1-48a6-939b-ec31763f069f", host: "localhost:8080"
+2025/05/22 00:48:19 [error] 24664#24480: *1 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "GET /summary?id=fabe335a-40b1-48a6-939b-ec31763f069f HTTP/1.1", upstream: "http://127.0.0.1:5001/summary?id=fabe335a-40b1-48a6-939b-ec31763f069f", host: "localhost:8080"
+2025/05/22 00:48:21 [error] 24664#24480: *2 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", upstream: "http://127.0.0.1:5002/", host: "localhost:8080"
+2025/05/22 00:48:23 [error] 24664#24480: *2 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", upstream: "http://[::1]:5002/", host: "localhost:8080"
+2025/05/22 00:48:23 [error] 24664#24480: *2 no live upstreams while connecting to upstream, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", upstream: "http://backend/", host: "localhost:8080"
+2025/05/22 00:48:42 [notice] 6964#14316: signal process started
+2025/05/22 00:48:42 [error] 6964#14316: OpenEvent("Global\ngx_stop_16484") failed (2: The system cannot find the file specified)
+2025/05/22 00:50:29 [notice] 22140#9028: signal process started
+2025/05/22 00:50:29 [error] 22140#9028: OpenEvent("Global\ngx_stop_18512") failed (2: The system cannot find the file specified)
+2025/05/22 00:58:43 [notice] 12716#27420: signal process started
+2025/05/22 00:58:43 [error] 12716#27420: OpenEvent("Global\ngx_stop_21252") failed (2: The system cannot find the file specified)
+2025/05/22 00:59:49 [notice] 22256#25268: signal process started
+2025/05/22 00:59:49 [error] 22256#25268: OpenEvent("Global\ngx_stop_1596") failed (2: The system cannot find the file specified)

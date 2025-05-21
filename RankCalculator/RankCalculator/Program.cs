@@ -29,6 +29,8 @@ public class RankCalculator
         ConnectionFactory factory = new ConnectionFactory
         {
             HostName = "localhost",
+            UserName = Environment.GetEnvironmentVariable("RABBITMQ_DEFAULT_USER"),
+            Password = Environment.GetEnvironmentVariable("RABBITMQ_DEFAULT_PASS")
         };
 
         await using IConnection connection = await factory.CreateConnectionAsync();
