@@ -167,15 +167,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "E2E.Tests",
+              "Title": "E2E.Tests.csproj",
               "DocumentMoniker": "C:\\Users\\Eugene\\ds-2025\\E2E.Tests\\E2E.Tests.csproj",
               "RelativeDocumentMoniker": "E2E.Tests\\E2E.Tests.csproj",
               "ToolTip": "C:\\Users\\Eugene\\ds-2025\\E2E.Tests\\E2E.Tests.csproj",
               "RelativeToolTip": "E2E.Tests\\E2E.Tests.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-05-21T12:36:18.375Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-21T12:36:18.375Z"
             },
             {
               "$type": "Document",
@@ -187,8 +186,7 @@
               "RelativeToolTip": "Valuator\\Pages\\Summary.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-21T12:17:45.431Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-21T12:17:45.431Z"
             },
             {
               "$type": "Document",
@@ -200,8 +198,7 @@
               "RelativeToolTip": "Valuator\\Pages\\Index.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-21T12:07:27.801Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-21T12:07:27.801Z"
             },
             {
               "$type": "Document",
@@ -211,7 +208,7 @@
               "RelativeDocumentMoniker": "E2E.Tests\\Tests.cs",
               "ToolTip": "C:\\Users\\Eugene\\ds-2025\\E2E.Tests\\Tests.cs",
               "RelativeToolTip": "E2E.Tests\\Tests.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAAwC8AAAAvAAAAAAAAAA==",
+              "ViewState": "AgIAAFwAAAAAAAAAAAAuwHIAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-21T12:03:00.554Z",
               "EditorCaption": ""

@@ -10,7 +10,7 @@ namespace System.E2ETests;
 public class ValuatorE2ETests : IDisposable
 {
     private readonly IWebDriver _driver;
-    private const string BaseUrl = "http://localhost:5001"; // URL вашего приложения
+    private const string BaseUrl = "http://localhost:5001";
 
 
     private readonly string _rankCalculatedId = "RankCalculated";
@@ -21,7 +21,6 @@ public class ValuatorE2ETests : IDisposable
 
     public ValuatorE2ETests()
     {
-        // Настройка ChromeDriver
         var options = new ChromeOptions();
         options.AddArgument("--disable-gpu");
         options.AddArgument("--no-sandbox");
@@ -81,6 +80,40 @@ public class ValuatorE2ETests : IDisposable
         var testText = _similarityText;
         var expectedRank = $"{_rankLabel} 0,5";
         var expectedSimilarity = $"{_similarityLabel} 1";
+
+        textArea.Clear();
+        textArea.SendKeys(testText);
+        submitButton.Click();
+
+        Thread.Sleep(5000);
+
+        var rankElement = _driver.FindElement(By.Id(_rankCalculatedId));
+        var similarityElement = _driver.FindElement(By.Id(_similarityCalculatedId));
+
+        string rankValue = rankElement.Text;
+        string similarityValue = similarityElement.Text;
+
+        Assert.That(expectedRank, Is.EqualTo(rankValue));
+        Assert.That(expectedSimilarity, Is.EqualTo(similarityValue));
+    }
+
+    [Fact]
+    public void SubmitTextAndCheckRank_ThirdSendingAnotherRegion_ShouldReturnResultsSimilarityFalse()
+    {
+        _driver.Navigate().GoToUrl(BaseUrl);
+
+        Thread.Sleep(2000);
+
+        var regionSelect = _driver.FindElement(By.Name("region"));
+        var selectElement = new SelectElement(regionSelect);
+        selectElement.SelectByValue("Germany");
+
+        var textArea = _driver.FindElement(By.Id("field"));
+        var submitButton = _driver.FindElement(By.Id("submit"));
+
+        var testText = _similarityText;
+        var expectedRank = $"{_rankLabel} 0,5";
+        var expectedSimilarity = $"{_similarityLabel} 0";
 
         textArea.Clear();
         textArea.SendKeys(testText);

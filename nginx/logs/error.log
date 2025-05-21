@@ -201,3 +201,7 @@ ginx\logs\access.log" failed (123: The filename, directory name, or volume label
 2025/05/15 08:59:21 [error] 10544#8596: OpenEvent("Global\ngx_stop_884") failed (2: The system cannot find the file specified)
 2025/05/21 15:29:43 [notice] 19300#13560: signal process started
 2025/05/21 15:29:43 [error] 19300#13560: OpenEvent("Global\ngx_stop_22764") failed (2: The system cannot find the file specified)
+2025/05/21 16:25:21 [notice] 10680#1844: signal process started
+2025/05/21 16:25:21 [error] 10680#1844: OpenEvent("Global\ngx_stop_21672") failed (2: The system cannot find the file specified)
+2025/05/21 23:50:18 [notice] 25172#22644: signal process started
+2025/05/21 23:50:18 [error] 25172#22644: OpenEvent("Global\ngx_stop_16804") failed (2: The system cannot find the file specified)

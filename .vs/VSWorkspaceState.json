@@ -1,13 +1,12 @@
 {
   "ExpandedNodes": [
     "",
-    "\\RankCalculator",
+    "\\E2E.Tests",
     "\\RankCalculator\\RankCalculator",
-    "\\Valuator",
     "\\Valuator\\Pages",
     "\\Valuator\\wwwroot",
     "\\Valuator\\wwwroot\\css"
   ],
-  "SelectedNode": "\\Valuator\\Pages\\Index.cshtml.cs",
+  "SelectedNode": "\\E2E.Tests\\Tests.cs",
   "PreviewInSolutionExplorer": false
 }
