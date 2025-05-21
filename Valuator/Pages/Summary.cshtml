@@ -4,8 +4,8 @@
 }
 @if (Model.IsRankCalculated)
 {
-    <p>Оценка содержания: @Model.Rank</p>
-    <p>Плагиат: @Model.Similarity</p>
+    <p id="RankCalculated">Оценка содержания: @Model.Rank</p>
+    <p id="SimilarityCalculated">Плагиат: @Model.Similarity</p>
 }
 else
 {
