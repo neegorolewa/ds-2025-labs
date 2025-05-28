@@ -9,7 +9,6 @@ public class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
-        // 1. Загружаем конфигурацию для всех шардов
         var redisConfig = new Dictionary<string, string>
         {
             ["RU"] = Environment.GetEnvironmentVariable("DB_RU"),
@@ -19,7 +18,6 @@ public class Program
 
         };
 
-        // 2. Инициализируем Redis с поддержкой регионов
         builder.Services.AddSingleton<IRedis>(new Redis(
             Environment.GetEnvironmentVariable("DB_MAIN"),
             redisConfig
@@ -44,12 +42,13 @@ public class Program
         {
             app.UseExceptionHandler("/Error");
         }
+
         app.UseStaticFiles();
 
         app.UseRouting();
 
-        app.UseAuthentication();
         app.UseAuthorization();
+        app.UseAuthentication();
 
         app.MapRazorPages();
 

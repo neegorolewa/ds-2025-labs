@@ -52,7 +52,7 @@ public class IndexModel : PageModel
         string id = Guid.NewGuid().ToString();
 
         _redisService.SetShardMap(id, reg);
-        _redisService.Set($"USER-{username}", text, reg);
+        _redisService.Set($"USER-{id}", username, reg);
 
         //проверка на плагиат прежде, чем сохраняем текст в бд
         string similarityKey = "SIMILARITY-" + id;

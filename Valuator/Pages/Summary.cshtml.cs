@@ -25,9 +25,9 @@ public class SummaryModel : PageModel
 
     public IActionResult OnGet(string id)
     {
-        string? username = User.Identity.Name;
+        string? usernameActual = User.Identity.Name;
 
-        if (string.IsNullOrEmpty(username))
+        if (string.IsNullOrEmpty(usernameActual))
         {
             return RedirectToPage("/Login");
         }
@@ -36,11 +36,9 @@ public class SummaryModel : PageModel
 
         string region = _redisService.GetShardRegion(id);
 
-        string textAuthor = _redisService.Get($"USER-{username}", region) ?? string.Empty;
+        string author = _redisService.Get($"USER-{id}", region) ?? string.Empty;
 
-        string text = _redisService.Get($"TEXT-{id}", region);
-
-        if (text != textAuthor)
+        if (author != usernameActual)
         {
             //return StatusCode(403, "Вы не автор этого текста");
             return Forbid();
