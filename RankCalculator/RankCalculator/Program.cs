@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Globalization;
+using System.Text;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using Valuator.Service;
@@ -96,10 +97,29 @@ public class RankCalculator
 
     public static double CalculateRank(string text)
     {
-        double nonAlphabeticCount = text.Count(c => !char.IsLetter(c));
-        double countSymbols = text.Length;
+        if (string.IsNullOrEmpty(text))
+            return 0;
 
-        return countSymbols == 0 ? 0 : nonAlphabeticCount / countSymbols;
+        var textInfo = new StringInfo(text);
+        int textLength = textInfo.LengthInTextElements;
+
+        int nonAlphabeticCount = 0;
+
+        for (int i = 0; i < textLength; i++)
+        {
+            string element = textInfo.SubstringByTextElements(i, 1);
+            if (element.Length == 1)
+            {
+                if (!char.IsLetter(element[0]))
+                    nonAlphabeticCount++;
+            }
+            else
+            {
+                nonAlphabeticCount++;
+            }
+        }
+
+        return (double)nonAlphabeticCount / textLength;
     }
 
 

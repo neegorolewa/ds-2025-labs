@@ -3,8 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Eugene\\ds-2025\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Eugene\\ds-2025\\RankCalculator\\RankCalculator.Tests\\RankCalculatorTests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:RankCalculator\\RankCalculator.Tests\\RankCalculatorTests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Eugene\\ds-2025\\RankCalculator\\RankCalculator\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:RankCalculator\\RankCalculator\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Eugene\\ds-2025\\E2E.Tests\\Tests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:E2E.Tests\\Tests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -155,14 +163,40 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "RankCalculatorTests.cs",
+              "DocumentMoniker": "C:\\Users\\Eugene\\ds-2025\\RankCalculator\\RankCalculator.Tests\\RankCalculatorTests.cs",
+              "RelativeDocumentMoniker": "RankCalculator\\RankCalculator.Tests\\RankCalculatorTests.cs",
+              "ToolTip": "C:\\Users\\Eugene\\ds-2025\\RankCalculator\\RankCalculator.Tests\\RankCalculatorTests.cs",
+              "RelativeToolTip": "RankCalculator\\RankCalculator.Tests\\RankCalculatorTests.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T14:37:49.4Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Eugene\\ds-2025\\RankCalculator\\RankCalculator\\Program.cs",
               "RelativeDocumentMoniker": "RankCalculator\\RankCalculator\\Program.cs",
               "ToolTip": "C:\\Users\\Eugene\\ds-2025\\RankCalculator\\RankCalculator\\Program.cs",
               "RelativeToolTip": "RankCalculator\\RankCalculator\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEUAAAAqAAAAAAAAAA==",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAswHkAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-09T23:06:33.659Z",
+              "WhenOpened": "2025-05-28T14:22:41.795Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Tests.cs",
+              "DocumentMoniker": "C:\\Users\\Eugene\\ds-2025\\E2E.Tests\\Tests.cs",
+              "RelativeDocumentMoniker": "E2E.Tests\\Tests.cs",
+              "ToolTip": "C:\\Users\\Eugene\\ds-2025\\E2E.Tests\\Tests.cs",
+              "RelativeToolTip": "E2E.Tests\\Tests.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-22T04:58:11.363Z",
               "EditorCaption": ""
             }
           ]

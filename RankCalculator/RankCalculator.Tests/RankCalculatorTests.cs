@@ -46,6 +46,8 @@ public class RankCalculatorTests
         Assert.Equal(expectedValue, result);
     }
 
+
+    //добавил корректную обработку эмодзи
     [Theory]
     [InlineData("abc", 0)]
     [InlineData("ABC", 0)]
@@ -56,7 +58,8 @@ public class RankCalculatorTests
     [InlineData("Тест", 0)]
     [InlineData("10000000000000000000000000000000000000000000000000", 1.0)]
     [InlineData("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", 0)]
-    [InlineData("Emoji👍", 2.0 / 7.0)]
+    [InlineData("Emoji👍", 1.0 / 6.0)]
+    [InlineData("AnotherEmoji😀", 1.0 / 13.0)]
     [InlineData("你好", 0)]
     public void CalculateRank_DifferentTestsInputsWith_ReturnsRankZero(string text, double expectedValue)
     {
