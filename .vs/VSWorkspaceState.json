@@ -1,10 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\RankCalculator",
-    "\\RankCalculator\\RankCalculator",
-    "\\Valuator\\Pages"
+    ""
   ],
-  "SelectedNode": "\\RankCalculator\\docker-compose.yaml",
+  "SelectedNode": "\\ds-2024.sln",
   "PreviewInSolutionExplorer": false
 }

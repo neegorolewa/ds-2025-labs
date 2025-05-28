@@ -3,20 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\Eugene\\ds-2025\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{03D170E2-F0AA-4BC7-B131-C947F51DF687}|E2E.Tests\\E2E.Tests.csproj|c:\\users\\eugene\\ds-2025\\e2e.tests\\tests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{03D170E2-F0AA-4BC7-B131-C947F51DF687}|E2E.Tests\\E2E.Tests.csproj|solutionrelative:e2e.tests\\tests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BB3B7AF3-09CB-8246-6EE6-CF385AAB4AA1}|Valuator\\Valuator.csproj|c:\\users\\eugene\\ds-2025\\valuator\\pages\\summary.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB3B7AF3-09CB-8246-6EE6-CF385AAB4AA1}|Valuator\\Valuator.csproj|solutionrelative:valuator\\pages\\summary.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BB3B7AF3-09CB-8246-6EE6-CF385AAB4AA1}|Valuator\\Valuator.csproj|c:\\users\\eugene\\ds-2025\\valuator\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{BB3B7AF3-09CB-8246-6EE6-CF385AAB4AA1}|Valuator\\Valuator.csproj|solutionrelative:valuator\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{BB3B7AF3-09CB-8246-6EE6-CF385AAB4AA1}|Valuator\\Valuator.csproj|c:\\users\\eugene\\ds-2025\\valuator\\pages\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB3B7AF3-09CB-8246-6EE6-CF385AAB4AA1}|Valuator\\Valuator.csproj|solutionrelative:valuator\\pages\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{03D170E2-F0AA-4BC7-B131-C947F51DF687}|E2E.Tests\\E2E.Tests.csproj|c:\\users\\eugene\\ds-2025\\e2e.tests\\e2e.tests.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{03D170E2-F0AA-4BC7-B131-C947F51DF687}|E2E.Tests\\E2E.Tests.csproj|solutionrelative:e2e.tests\\e2e.tests.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{BB3B7AF3-09CB-8246-6EE6-CF385AAB4AA1}|Valuator\\Valuator.csproj|c:\\users\\eugene\\ds-2025\\valuator\\redis.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB3B7AF3-09CB-8246-6EE6-CF385AAB4AA1}|Valuator\\Valuator.csproj|solutionrelative:valuator\\redis.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BB3B7AF3-09CB-8246-6EE6-CF385AAB4AA1}|Valuator\\Valuator.csproj|c:\\users\\eugene\\ds-2025\\valuator\\pages\\summary.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{BB3B7AF3-09CB-8246-6EE6-CF385AAB4AA1}|Valuator\\Valuator.csproj|solutionrelative:valuator\\pages\\summary.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{BB3B7AF3-09CB-8246-6EE6-CF385AAB4AA1}|Valuator\\Valuator.csproj|c:\\users\\eugene\\ds-2025\\valuator\\iredis.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB3B7AF3-09CB-8246-6EE6-CF385AAB4AA1}|Valuator\\Valuator.csproj|solutionrelative:valuator\\iredis.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BB3B7AF3-09CB-8246-6EE6-CF385AAB4AA1}|Valuator\\Valuator.csproj|c:\\users\\eugene\\ds-2025\\valuator\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB3B7AF3-09CB-8246-6EE6-CF385AAB4AA1}|Valuator\\Valuator.csproj|solutionrelative:valuator\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -166,51 +170,67 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "E2E.Tests.csproj",
-              "DocumentMoniker": "C:\\Users\\Eugene\\ds-2025\\E2E.Tests\\E2E.Tests.csproj",
-              "RelativeDocumentMoniker": "E2E.Tests\\E2E.Tests.csproj",
-              "ToolTip": "C:\\Users\\Eugene\\ds-2025\\E2E.Tests\\E2E.Tests.csproj",
-              "RelativeToolTip": "E2E.Tests\\E2E.Tests.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-05-21T12:36:18.375Z"
+              "DocumentIndex": 3,
+              "Title": "IRedis.cs",
+              "DocumentMoniker": "C:\\Users\\Eugene\\ds-2025\\Valuator\\IRedis.cs",
+              "RelativeDocumentMoniker": "Valuator\\IRedis.cs",
+              "ToolTip": "C:\\Users\\Eugene\\ds-2025\\Valuator\\IRedis.cs",
+              "RelativeToolTip": "Valuator\\IRedis.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T22:35:37.068Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Summary.cshtml",
-              "DocumentMoniker": "C:\\Users\\Eugene\\ds-2025\\Valuator\\Pages\\Summary.cshtml",
-              "RelativeDocumentMoniker": "Valuator\\Pages\\Summary.cshtml",
-              "ToolTip": "C:\\Users\\Eugene\\ds-2025\\Valuator\\Pages\\Summary.cshtml",
-              "RelativeToolTip": "Valuator\\Pages\\Summary.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-21T12:17:45.431Z"
+              "DocumentIndex": 2,
+              "Title": "Redis.cs",
+              "DocumentMoniker": "C:\\Users\\Eugene\\ds-2025\\Valuator\\Redis.cs",
+              "RelativeDocumentMoniker": "Valuator\\Redis.cs",
+              "ToolTip": "C:\\Users\\Eugene\\ds-2025\\Valuator\\Redis.cs",
+              "RelativeToolTip": "Valuator\\Redis.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAxwB4AAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T22:13:29.792Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Eugene\\ds-2025\\Valuator\\Pages\\Index.cshtml",
-              "RelativeDocumentMoniker": "Valuator\\Pages\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Eugene\\ds-2025\\Valuator\\Pages\\Index.cshtml",
-              "RelativeToolTip": "Valuator\\Pages\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-21T12:07:27.801Z"
+              "Title": "Index.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\Eugene\\ds-2025\\Valuator\\Pages\\Index.cshtml.cs",
+              "RelativeDocumentMoniker": "Valuator\\Pages\\Index.cshtml.cs",
+              "ToolTip": "C:\\Users\\Eugene\\ds-2025\\Valuator\\Pages\\Index.cshtml.cs",
+              "RelativeToolTip": "Valuator\\Pages\\Index.cshtml.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAA1wDMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T22:03:20.245Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Tests.cs",
-              "DocumentMoniker": "C:\\Users\\Eugene\\ds-2025\\E2E.Tests\\Tests.cs",
-              "RelativeDocumentMoniker": "E2E.Tests\\Tests.cs",
-              "ToolTip": "C:\\Users\\Eugene\\ds-2025\\E2E.Tests\\Tests.cs",
-              "RelativeToolTip": "E2E.Tests\\Tests.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAAwC8AAAAvAAAAAAAAAA==",
+              "Title": "Summary.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\Eugene\\ds-2025\\Valuator\\Pages\\Summary.cshtml.cs",
+              "RelativeDocumentMoniker": "Valuator\\Pages\\Summary.cshtml.cs",
+              "ToolTip": "C:\\Users\\Eugene\\ds-2025\\Valuator\\Pages\\Summary.cshtml.cs",
+              "RelativeToolTip": "Valuator\\Pages\\Summary.cshtml.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAQwBoAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-21T12:03:00.554Z",
+              "WhenOpened": "2025-05-28T21:58:16.374Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Eugene\\ds-2025\\Valuator\\Program.cs",
+              "RelativeDocumentMoniker": "Valuator\\Program.cs",
+              "ToolTip": "C:\\Users\\Eugene\\ds-2025\\Valuator\\Program.cs",
+              "RelativeToolTip": "Valuator\\Program.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAQwCIAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T21:56:46.802Z",
               "EditorCaption": ""
             }
           ]

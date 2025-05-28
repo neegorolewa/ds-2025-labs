@@ -10,20 +10,39 @@ public class Redis : IRedis
 
     public Redis(string redisConnectionString, Dictionary<string, string> regionConnections)
     {
-        _mainConnection = ConnectionMultiplexer.Connect(redisConnectionString);
+        _mainConnection = ConnectionMultiplexer.Connect(
+            $"{redisConnectionString},password={GetRedisPassword("MAIN")},abortConnect=false"
+        );
+
         _regionConnections = new Dictionary<string, IConnectionMultiplexer>();
         foreach (var region in regionConnections)
         {
             try
             {
-                var connection = ConnectionMultiplexer.Connect(region.Value);
+                var connection = ConnectionMultiplexer.Connect(
+                    $"{region.Value},password={GetRedisPassword(region.Key)},abortConnect=false"
+                );
                 _regionConnections[region.Key] = connection;
+                Console.WriteLine($"Successfully connected to {region.Key} Redis");
             }
             catch (RedisConnectionException ex)
             {
                 Console.WriteLine($"Failed to connect to {region.Key} Redis: {ex.Message}");
             }
         }
+    }
+
+    private string GetRedisPassword(string region)
+    {
+        return region.ToUpper() switch
+        {
+            "MAIN" => Environment.GetEnvironmentVariable("REDIS_MAIN_PASS"),
+            "RU" => Environment.GetEnvironmentVariable("REDIS_RU_PASS"),
+            "EU" => Environment.GetEnvironmentVariable("REDIS_EU_PASS"),
+            "ASIA" => Environment.GetEnvironmentVariable("REDIS_ASIA_PASS"),
+            "USERS" => Environment.GetEnvironmentVariable("REDIS_USERS_PASS"),
+            _ => throw new ArgumentException($"Unknown Redis region: {region}")
+        };
     }
 
     public string GetShardRegion(string textId)
@@ -86,5 +105,20 @@ public class Redis : IRedis
         }
 
         db.StringSet(key, value);
+    }
+
+    public bool SetContains(string key, string value, string? region = null)
+    {
+        IDatabase db;
+        if (region == null || !_regionConnections.ContainsKey(region))
+        {
+            db = _mainConnection.GetDatabase();
+        }
+        else
+        {
+            db = _regionConnections[region].GetDatabase();
+        }
+
+        return db.SetContains(key, value);
     }
 }

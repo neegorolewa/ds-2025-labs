@@ -24,9 +24,17 @@ public class IndexModel : PageModel
 
     public async Task<IActionResult> OnPostAsync(string text, string region)
     {
+        _logger.LogDebug(text);
+
         if (string.IsNullOrWhiteSpace(text))
         {
             return Page();
+        }
+
+        string? username = User.Identity.Name;
+        if (string.IsNullOrEmpty(username))
+        {
+            return RedirectToPage("/Login");
         }
 
         Console.WriteLine($"Received country: {region}");
@@ -41,10 +49,10 @@ public class IndexModel : PageModel
 
         Console.WriteLine($"Mapped to region: {reg}");
 
-        _logger.LogDebug(text);
         string id = Guid.NewGuid().ToString();
 
         _redisService.SetShardMap(id, reg);
+        _redisService.Set($"USER-{username}", text, reg);
 
         //проверка на плагиат прежде, чем сохраняем текст в бд
         string similarityKey = "SIMILARITY-" + id;

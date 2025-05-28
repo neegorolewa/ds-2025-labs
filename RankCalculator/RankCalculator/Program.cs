@@ -16,7 +16,8 @@ public class RankCalculator
         {
             ["RU"] = Environment.GetEnvironmentVariable("DB_RU") ,
             ["EU"] = Environment.GetEnvironmentVariable("DB_EU") ,
-            ["ASIA"] = Environment.GetEnvironmentVariable("DB_ASIA")
+            ["ASIA"] = Environment.GetEnvironmentVariable("DB_ASIA"),
+            ["USERS"] = Environment.GetEnvironmentVariable("DB_USERS")
         };
 
         _redis = new Redis(
@@ -71,10 +72,9 @@ public class RankCalculator
 
         double rank = CalculateRank(text);
         _redis.Set("RANK-" + id, rank.ToString(), region);
-        //
+        
         Console.WriteLine($"Saved RANK-{id} = {rank} in region {region}");
         
-        //
         string savedRank = _redis.Get($"RANK-{id}", region);
         Console.WriteLine($"Verify RANK: {savedRank}");
 

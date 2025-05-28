@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Valuator.Service;
 
 namespace Valuator;
@@ -14,6 +15,8 @@ public class Program
             ["RU"] = Environment.GetEnvironmentVariable("DB_RU"),
             ["EU"] = Environment.GetEnvironmentVariable("DB_EU"),
             ["ASIA"] = Environment.GetEnvironmentVariable("DB_ASIA"),
+            ["USERS"] = Environment.GetEnvironmentVariable("DB_USERS"),
+
         };
 
         // 2. Инициализируем Redis с поддержкой регионов
@@ -24,6 +27,15 @@ public class Program
 
         // Add services to the container.
         builder.Services.AddRazorPages();
+
+        builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+            .AddCookie(options =>
+            {
+                options.LoginPath = "/Login";
+                options.LogoutPath = "/Logout";
+
+                options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
+            });
 
         var app = builder.Build();
 
@@ -36,6 +48,7 @@ public class Program
 
         app.UseRouting();
 
+        app.UseAuthentication();
         app.UseAuthorization();
 
         app.MapRazorPages();

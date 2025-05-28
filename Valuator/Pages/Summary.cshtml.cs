@@ -23,12 +23,30 @@ public class SummaryModel : PageModel
     public double Similarity { get; set; }
     public bool IsRankCalculated{ get; set; }
 
-    public void OnGet(string id)
+    public IActionResult OnGet(string id)
     {
+        string? username = User.Identity.Name;
+
+        if (string.IsNullOrEmpty(username))
+        {
+            return RedirectToPage("/Login");
+        }
+
         _logger.LogDebug(id);
 
-        // TODO: (pa1) проинициализировать свойства Rank и Similarity значениями из БД (Redis)
         string region = _redisService.GetShardRegion(id);
+
+        string textAuthor = _redisService.Get($"USER-{username}", region) ?? string.Empty;
+
+        string text = _redisService.Get($"TEXT-{id}", region);
+
+        if (text != textAuthor)
+        {
+            //return StatusCode(403, "Вы не автор этого текста");
+            return Forbid();
+        }
+
+        // TODO: (pa1) проинициализировать свойства Rank и Similarity значениями из БД (Redis)
         Console.WriteLine($"LOOKUP: {id}, {region}");
         
         string rankKey = "RANK-" + id;
@@ -58,5 +76,7 @@ public class SummaryModel : PageModel
         {
             Similarity = 0;
         }
+
+        return Page();
     }
 }

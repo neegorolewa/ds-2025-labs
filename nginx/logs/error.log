@@ -222,3 +222,49 @@ ginx\logs\access.log" failed (123: The filename, directory name, or volume label
 2025/05/22 00:59:49 [error] 22256#25268: OpenEvent("Global\ngx_stop_1596") failed (2: The system cannot find the file specified)
 2025/05/22 01:07:21 [notice] 25856#1820: signal process started
 2025/05/22 01:07:21 [error] 25856#1820: OpenEvent("Global\ngx_stop_14044") failed (2: The system cannot find the file specified)
+2025/05/28 22:30:23 [notice] 29328#22444: signal process started
+2025/05/28 22:30:23 [error] 29328#22444: OpenEvent("Global\ngx_stop_30564") failed (2: The system cannot find the file specified)
+2025/05/28 23:15:56 [notice] 11944#11768: signal process started
+2025/05/28 23:15:56 [error] 11944#11768: OpenEvent("Global\ngx_stop_21152") failed (2: The system cannot find the file specified)
+2025/05/28 23:30:37 [notice] 13004#15952: signal process started
+2025/05/28 23:30:37 [error] 13004#15952: OpenEvent("Global\ngx_stop_29108") failed (2: The system cannot find the file specified)
+2025/05/28 23:45:17 [notice] 24224#3540: signal process started
+2025/05/28 23:45:17 [error] 24224#3540: OpenEvent("Global\ngx_stop_26524") failed (2: The system cannot find the file specified)
+2025/05/29 00:12:39 [notice] 9756#25348: signal process started
+2025/05/29 00:12:39 [error] 9756#25348: OpenEvent("Global\ngx_stop_1864") failed (2: The system cannot find the file specified)
+2025/05/29 00:24:54 [notice] 30136#25256: signal process started
+2025/05/29 00:24:54 [error] 30136#25256: OpenEvent("Global\ngx_stop_7536") failed (2: The system cannot find the file specified)
+2025/05/29 00:27:54 [notice] 6228#20228: signal process started
+2025/05/29 00:27:54 [error] 6228#20228: OpenEvent("Global\ngx_stop_2760") failed (2: The system cannot find the file specified)
+2025/05/29 00:27:57 [notice] 25872#28372: signal process started
+2025/05/29 00:27:57 [error] 25872#28372: OpenEvent("Global\ngx_stop_2760") failed (2: The system cannot find the file specified)
+2025/05/29 00:29:23 [notice] 22064#29584: signal process started
+2025/05/29 00:29:23 [error] 22064#29584: OpenEvent("Global\ngx_stop_27480") failed (2: The system cannot find the file specified)
+2025/05/29 00:34:14 [notice] 14896#25504: signal process started
+2025/05/29 00:34:14 [error] 14896#25504: OpenEvent("Global\ngx_stop_26160") failed (2: The system cannot find the file specified)
+2025/05/29 00:47:52 [notice] 17940#29736: signal process started
+2025/05/29 00:47:52 [error] 17940#29736: OpenEvent("Global\ngx_stop_21328") failed (2: The system cannot find the file specified)
+2025/05/29 00:58:56 [notice] 21368#15500: signal process started
+2025/05/29 00:58:56 [error] 21368#15500: OpenEvent("Global\ngx_stop_18804") failed (2: The system cannot find the file specified)
+2025/05/29 01:02:00 [notice] 15628#15860: signal process started
+2025/05/29 01:02:00 [error] 15628#15860: OpenEvent("Global\ngx_stop_8928") failed (2: The system cannot find the file specified)
+2025/05/29 01:03:00 [notice] 23040#18364: signal process started
+2025/05/29 01:03:00 [error] 23040#18364: OpenEvent("Global\ngx_stop_6952") failed (2: The system cannot find the file specified)
+2025/05/29 01:07:47 [notice] 18204#30408: signal process started
+2025/05/29 01:07:47 [error] 18204#30408: OpenEvent("Global\ngx_stop_7072") failed (2: The system cannot find the file specified)
+2025/05/29 01:08:15 [notice] 12988#16212: signal process started
+2025/05/29 01:08:15 [error] 12988#16212: OpenEvent("Global\ngx_stop_26512") failed (2: The system cannot find the file specified)
+2025/05/29 01:09:47 [notice] 12420#19888: signal process started
+2025/05/29 01:09:47 [error] 12420#19888: OpenEvent("Global\ngx_stop_26356") failed (2: The system cannot find the file specified)
+2025/05/29 01:25:52 [notice] 6956#14892: signal process started
+2025/05/29 01:25:52 [error] 6956#14892: OpenEvent("Global\ngx_stop_1288") failed (2: The system cannot find the file specified)
+2025/05/29 01:53:12 [notice] 24992#8612: signal process started
+2025/05/29 01:53:12 [error] 24992#8612: OpenEvent("Global\ngx_stop_26356") failed (2: The system cannot find the file specified)
+2025/05/29 01:55:51 [notice] 8512#8112: signal process started
+2025/05/29 01:55:51 [error] 8512#8112: OpenEvent("Global\ngx_stop_21892") failed (2: The system cannot find the file specified)
+2025/05/29 01:56:39 [notice] 29668#12820: signal process started
+2025/05/29 01:56:39 [error] 29668#12820: OpenEvent("Global\ngx_stop_1616") failed (2: The system cannot find the file specified)
+2025/05/29 02:04:39 [notice] 23896#5700: signal process started
+2025/05/29 02:04:39 [error] 23896#5700: OpenEvent("Global\ngx_stop_9188") failed (2: The system cannot find the file specified)
+2025/05/29 02:23:14 [notice] 15088#22916: signal process started
+2025/05/29 02:23:14 [error] 15088#22916: OpenEvent("Global\ngx_stop_26848") failed (2: The system cannot find the file specified)
